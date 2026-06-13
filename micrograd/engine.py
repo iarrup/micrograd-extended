@@ -70,6 +70,17 @@ class Value:
         out._backward = _backward
     
 
+    def tanh(self):
+        x = self.data
+        t = (math.exp(x) - math.exp(-x)) / (math.exp(x) + math.exp(-x))
+
+        out = Value(t, (self, ), 'tanh')
+
+        def _backward():
+            self.grad += (1 - t**2) * out.grad
+
+        out._backward = _backward
+
     def backward(self):
 
         # topological order all of the children in the graph
