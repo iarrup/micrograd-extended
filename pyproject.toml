@@ -15,4 +15,6 @@ dev = [
     "jupyter",
     "matplotlib",
     "numpy",
+    "pytest>=8.3.5",
+    "torch>=2.5.1",
 ]
