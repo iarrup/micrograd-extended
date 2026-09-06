@@ -32,7 +32,6 @@ class Neuron(Module):
             raise ValueError(f"Unsupported activation, only {list(ACTIVATIONS)} activations are supported")
         return ACTIVATIONS[act]
     
-
     def __call__(self, x):
         z = sum((wi*xi for wi,xi in zip(self.w, x)), self.b)
         return self._actfn(z)
